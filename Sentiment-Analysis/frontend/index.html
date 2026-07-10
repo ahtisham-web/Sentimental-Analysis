@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sentiment Analyzer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◈</span>
+        <span class="brand-name">Sentiment Analyzer</span>
+      </div>
+      <div class="model-badge" id="modelBadge">
+        <span class="badge-dot"></span>
+        <span id="modelBadgeText">loading model…</span>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" id="tabText" onclick="switchTab('text')">Text</button>
+      <button class="tab-btn" id="tabYoutube" onclick="switchTab('youtube')">YouTube Comments</button>
+    </nav>
+
+    <main class="card" id="textCard">
+      <div class="card-head">
+        <h1>Read the tone of any sentence</h1>
+        <p class="subtitle">A model trained from scratch — TF-IDF features, no external AI APIs.</p>
+      </div>
+
+      <button id="analyzeBtn" class="primary-btn">
+        <span id="btnText">Analyze Sentiment</span>
+        <span id="spinner" class="spinner" hidden></span>
+      </button>
+
+      <textarea id="inputText" placeholder="e.g. I really loved how this turned out!"></textarea>
+
+      <div class="error" id="errorBox"></div>
+
+      <section class="result" id="resultBox">
+        <div class="result-top">
+          <div class="emoji" id="resultEmoji"></div>
+          <div>
+            <div class="label" id="resultLabel"></div>
+            <div class="confidence" id="resultConfidence"></div>
+          </div>
+        </div>
+        <div class="meter-group" id="bars"></div>
+      </section>
+    </main>
+
+    <main class="card hidden" id="youtubeCard">
+      <div class="card-head">
+        <h1>Analyze YouTube comments</h1>
+        <p class="subtitle">Paste a video link — every top-level comment gets scored.</p>
+      </div>
+
+      <button id="ytAnalyzeBtn" class="primary-btn">
+        <span id="ytBtnText">Analyze Comments</span>
+        <span id="ytSpinner" class="spinner" hidden></span>
+      </button>
+
+      <input type="text" id="ytUrl" placeholder="https://www.youtube.com/watch?v=..." />
+
+      <div class="error" id="ytErrorBox"></div>
+
+      <section class="result" id="ytResultBox">
+        <div class="yt-summary" id="ytSummary"></div>
+        <div class="meter-group" id="ytBars"></div>
+        <div class="comment-list" id="ytComments"></div>
+      </section>
+    </main>
+
+  </div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

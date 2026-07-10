@@ -1,0 +1,9 @@
+{
+  "model_name": "RandomForest",
+  "accuracy": 99.45,
+  "precision": 99.46,
+  "recall": 99.45,
+  "f1_score": 99.45,
+  "training_samples": 1464,
+  "test_samples": 366
+}
